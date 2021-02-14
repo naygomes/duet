@@ -32,3 +32,10 @@ Route::get('listMusics', 'App\Http\Controllers\MusicController@listMusics');
 Route::get('showMusic/{id}', 'App\Http\Controllers\MusicController@showMusic');
 Route::put('updateMusic/{id}', 'App\Http\Controllers\MusicController@updateMusic');
 Route::delete('deleteMusic/{id}', 'App\Http\Controllers\MusicController@deleteMusic');
+
+//Rota de Playlist
+
+//Rotas de música
+Route::post('addToPlaylist/{user_id}/{music_id}', 'App\Http\Controllers\MusicController@addToPlaylist');
+Route::get('listPlaylist/{user_id}', 'App\Http\Controllers\MusicController@listPlaylist');
+Route::delete('removeFromPlaylist/{user_id}/{music_id}','App\Http\Controllers\MusicController@removeFromPlaylist');
