@@ -54,7 +54,7 @@ class MusicController extends Controller
         return response()->json([$playlist]);
     }
 
-    public function removeFromPlaylist($music_id, $user_id) {
+    public function removeFromPlaylist($user_id, $music_id) {
         $music = Music::find($music_id);
         $music->users()->detach($user_id);
         return response()->json([$music, 'Música removida da sua playlist!']);
