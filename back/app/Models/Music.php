@@ -11,7 +11,7 @@ class Music extends Model
     protected $table = "musics";
 
     public function users(){
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany('App\Models\User', 'music_user', 'music_id', 'user_id');
     }
     
     public function saveMusic($request){

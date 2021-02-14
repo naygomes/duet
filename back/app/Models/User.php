@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     public function musics(){
-        return $this->belongsToMany('App\Models\Music');
+        return $this->belongsToMany('App\Models\Music', 'music_user', 'user_id', 'music_id');
     }
 
     public function saveUser($request){
