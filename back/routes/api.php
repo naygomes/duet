@@ -18,4 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('saveMusic', 'App\Http\Controllers\MusicController@saveMusic');
+Route::post('createMusic', 'App\Http\Controllers\MusicController@createMusic');
+Route::get('listMusics', 'App\Http\Controllers\MusicController@listMusics');
+Route::get('showMusic', 'App\Http\Controllers\MusicController@showMusic');
+Route::put('updateMusic', 'App\Http\Controllers\MusicController@updateMusic');
+Route::delete('deleteMusic', 'App\Http\Controllers\MusicController@deleteMusic');
