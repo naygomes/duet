@@ -45,7 +45,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Music');
     }
 
-    public function createUser($request){
+    public function saveUser($request){
         if($request->name) {
             $this->name = $request->name;
         }
