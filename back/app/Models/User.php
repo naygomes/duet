@@ -41,4 +41,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function musics(){
+        return $this->belongsToMany('App\Models\Music');
+    }
+
+    public function createUser($request){
+        if($request->name) {
+            $this->name = $request->name;
+        }
+        if($request->email) {
+            $this->email = $request->email;
+        }
+        if($request->date_of_birth) {
+            $this->date_of_birth = $request->date_of_birth;
+        }
+        if($request->image_url) {
+            $this->image_url = $request->image_url;
+        }
+        if($request->password) {
+            $this->password = $request->password;
+        }
+        $this->save();
+    }
 }
