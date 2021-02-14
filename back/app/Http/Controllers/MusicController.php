@@ -20,19 +20,18 @@ class MusicController extends Controller
     }
 
     public function showMusic($id){
-        $music = Music::findOrFail($id);
+        $music = Music::find($id);
         return response()->json([$music]);    
     }
 
     public function updateMusic(Request $request, $id) {
-        $music = Music::findOrFail($id);
+        $music = Music::find($id);
         $music->saveMusic($request);
         return response()->json($music);
     }
 
     public function deleteMusic($id){
-        $music = Music::findOrFail($id);
         Music::destroy($id);
-        return response()->json($music, ['Usuário deletado com Sucesso!']);
+        return response()->json(['Usuário deletado com Sucesso!']);
     }
 }
