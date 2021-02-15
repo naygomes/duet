@@ -3,19 +3,15 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+use App\Http\Controllers\PassportController;
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('register', [PassportController::class, 'register']);
+Route::post('login', [PassportController::class, 'login']);
+
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('logout', [PassportController::class, 'logout']);
+    Route::get('getDetails', [PassportController::class, 'getDetails']);
 });
 
 //Rotas de usuário
@@ -25,7 +21,6 @@ Route::get('showUser/{id}', 'App\Http\Controllers\UserController@showUser');
 Route::put('updateUser/{id}', 'App\Http\Controllers\UserController@updateUser');
 Route::delete('deleteUser/{id}', 'App\Http\Controllers\UserController@deleteUser');
 
-
 //Rotas de música
 Route::post('createMusic', 'App\Http\Controllers\MusicController@createMusic');
 Route::get('listMusics', 'App\Http\Controllers\MusicController@listMusics');
@@ -34,8 +29,6 @@ Route::put('updateMusic/{id}', 'App\Http\Controllers\MusicController@updateMusic
 Route::delete('deleteMusic/{id}', 'App\Http\Controllers\MusicController@deleteMusic');
 
 //Rota de Playlist
-
-//Rotas de música
 Route::post('addToPlaylist/{user_id}/{music_id}', 'App\Http\Controllers\MusicController@addToPlaylist');
 Route::get('listPlaylist/{user_id}', 'App\Http\Controllers\MusicController@listPlaylist');
 Route::delete('removeFromPlaylist/{user_id}/{music_id}','App\Http\Controllers\MusicController@removeFromPlaylist');

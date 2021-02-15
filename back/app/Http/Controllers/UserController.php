@@ -9,7 +9,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function createUser(Request $request) {
-        $user = new User();
+        $user = new User;
         $user->saveUser($request);
         return response()->json($user);
     }
