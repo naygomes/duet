@@ -38,4 +38,16 @@ class Music extends Model
         }
         $this->save();
     }
+
+    public function addMusicIfNotExist($request) {
+        $exist = Music::where("title", $request->title)
+                ->where("artist", $request->artist)->first();
+        if(!$exist){
+            $music = new Music();
+            $music->saveMusic($request);
+        } else {
+            $music = $exist;
+        }
+        return $music;
+    }
 }

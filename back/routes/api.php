@@ -17,8 +17,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('getDetails', [PassportController::class, 'getDetails']);
     
     //Rotas de usuário
-    Route::put('updateUser/{id}', [UserController::class,'updateUser']);
-    Route::delete('deleteUser/{id}', [UserController::class,'deleteUser']);
+    Route::put('updateUser', [UserController::class,'updateUser']);
+    Route::delete('deleteUser', [UserController::class,'deleteUser']);
     
     //Rotas de música
     Route::post('createMusic', [MusicController::class, 'createMusic']);
@@ -26,9 +26,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('deleteMusic/{id}', [MusicController::class, 'deleteMusic']);
 
     //Rota de playlist
-    Route::post('addToPlaylist/{user_id}/{music_id}', [MusicController::class, 'addToPlaylist']);
-    Route::get('listPlaylist/{user_id}', [MusicController::class, 'listPlaylist']);
-    Route::delete('removeFromPlaylist/{user_id}/{music_id}',[MusicController::class, 'removeFromPlaylist']);
+    Route::post('addToPlaylist', [MusicController::class, 'addToPlaylist']);
+    Route::get('listPlaylist', [MusicController::class, 'listPlaylist']);
+    Route::delete('removeFromPlaylist/{music_id}',[MusicController::class, 'removeFromPlaylist']);
 });
 
 //Rotas de usuário
