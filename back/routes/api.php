@@ -4,31 +4,41 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PassportController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MusicController;
 
-
+//Rotas de autenticação
 Route::post('register', [PassportController::class, 'register']);
 Route::post('login', [PassportController::class, 'login']);
 
+//Middleware de autenticação
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('logout', [PassportController::class, 'logout']);
     Route::get('getDetails', [PassportController::class, 'getDetails']);
+    
+    //Rotas de usuário
+    Route::put('updateUser/{id}', [UserController::class,'updateUser']);
+    Route::delete('deleteUser/{id}', [UserController::class,'deleteUser']);
+    
+    //Rotas de música
+    Route::post('createMusic', [MusicController::class, 'createMusic']);
+    Route::put('updateMusic/{id}', [MusicController::class, 'updateMusic']);
+    Route::delete('deleteMusic/{id}', [MusicController::class, 'deleteMusic']);
+
+    //Rota de playlist
+    Route::post('addToPlaylist/{user_id}/{music_id}', [MusicController::class, 'addToPlaylist']);
+    Route::get('listPlaylist/{user_id}', [MusicController::class, 'listPlaylist']);
+    Route::delete('removeFromPlaylist/{user_id}/{music_id}',[MusicController::class, 'removeFromPlaylist']);
 });
 
 //Rotas de usuário
-Route::post('createUser', 'App\Http\Controllers\UserController@createUser');
-Route::get('listUsers', 'App\Http\Controllers\UserController@listUsers');
-Route::get('showUser/{id}', 'App\Http\Controllers\UserController@showUser');
-Route::put('updateUser/{id}', 'App\Http\Controllers\UserController@updateUser');
-Route::delete('deleteUser/{id}', 'App\Http\Controllers\UserController@deleteUser');
+Route::post('createUser', [UserController::class, 'createUser']);
+Route::get('listUsers', [UserController::class, 'listUsers']);
+Route::get('showUser/{id}', [UserController::class, 'showUser']);
 
 //Rotas de música
-Route::post('createMusic', 'App\Http\Controllers\MusicController@createMusic');
-Route::get('listMusics', 'App\Http\Controllers\MusicController@listMusics');
-Route::get('showMusic/{id}', 'App\Http\Controllers\MusicController@showMusic');
-Route::put('updateMusic/{id}', 'App\Http\Controllers\MusicController@updateMusic');
-Route::delete('deleteMusic/{id}', 'App\Http\Controllers\MusicController@deleteMusic');
+Route::get('listMusics', [MusicController::class, 'listMusics']);
+Route::get('showMusic/{id}', [MusicController::class, 'showMusic']);
 
-//Rota de Playlist
-Route::post('addToPlaylist/{user_id}/{music_id}', 'App\Http\Controllers\MusicController@addToPlaylist');
-Route::get('listPlaylist/{user_id}', 'App\Http\Controllers\MusicController@listPlaylist');
-Route::delete('removeFromPlaylist/{user_id}/{music_id}','App\Http\Controllers\MusicController@removeFromPlaylist');
+
+
