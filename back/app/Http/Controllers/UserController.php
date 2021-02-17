@@ -25,16 +25,14 @@ class UserController extends Controller
         return response()->json($user);    
     }
 
-    public function updateUser(Request $request) {
-        $user = Auth::user();
+    public function updateUser(Request $request, $id) {
+        $user = User::find($id);
         $user->saveUser($request);
         return response()->json($user);
     }
 
-    public function deleteUser(){
-        $user = Auth::user();
-        $user_id = $user->id;
-        User::destroy($user_id);
+    public function deleteUser($id){
+        User::destroy($id);
         return response()->json('Usuário deletado com Sucesso!');
     }
 }

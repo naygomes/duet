@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use DB;
 
@@ -74,25 +72,15 @@ class MusicController extends Controller
         return response()->json('Música removida da sua playlist!');
     }
 
-    // public function searchMusics($keyword){
-    //     $search = Http::get('https://api.deezer.com/search/track', [
-    //         'q' => $keyword
-    //     ]);
-    //     return response()->json($search->body());
-    // }
-
     public function searchMusics($keyword){
-        $client = new Client();
-        $search = $client->request("GET", 'https://api.deezer.com/search/track', [
-            'headers' => [
-                'Content-Type' => 'application/json',
-            ],
-            'query' => [
-            'q' => $keyword
-            ]
+        $client = new Client([
+            'base_uri' => 'https://api.deezer.com'
         ]);
 
-        $response = $search->getBody();
-        return response()-> json_decode($response);
+        $response = $client->request('GET', "search/track?q={$keyword}");
+        
+        $results = json_decode($response->getBody()->getContents());
+
+        return response()->json($results);
     }
 }
