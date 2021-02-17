@@ -40,3 +40,4 @@ Route::get('showUser/{id}', [UserController::class, 'showUser']);
 Route::get('listMusics', [MusicController::class, 'listMusics']);
 Route::get('showMusic/{id}', [MusicController::class, 'showMusic']);
 Route::get('searchMusics/{keyword}', [MusicController::class, 'searchMusics']);
+Route::get('searchLyrics/{artist}/{music}', [MusicController::class, 'searchLyrics']);

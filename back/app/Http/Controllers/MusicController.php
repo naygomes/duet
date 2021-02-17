@@ -83,4 +83,18 @@ class MusicController extends Controller
 
         return response()->json($results);
     }
+
+    public function searchLyrics($artist, $music){
+        $client = new Client([
+            'base_uri' => 'https://api.vagalume.com.br'
+        ]);
+
+        $api_key = env('API_KEY');
+
+        $response = $client->request('GET', "search.php?art={$artist}&mus={$music}&apikey={$api_key}");
+        
+        $results = json_decode($response->getBody()->getContents());
+
+        return response()->json($results);
+    }
 }
