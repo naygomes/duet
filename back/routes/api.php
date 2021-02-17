@@ -39,6 +39,4 @@ Route::get('showUser/{id}', [UserController::class, 'showUser']);
 //Rotas de música
 Route::get('listMusics', [MusicController::class, 'listMusics']);
 Route::get('showMusic/{id}', [MusicController::class, 'showMusic']);
-
-
-
+Route::get('searchMusics/{keyword}', [MusicController::class, 'searchMusics']);
