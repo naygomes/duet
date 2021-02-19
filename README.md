@@ -108,9 +108,19 @@ http://localhost:8000/
 ## Modelagem
 + Modelagem do Banco de Dados: ![Modelagem](https://i.ibb.co/M6yV2gX/modelagem.png)
 
+---
 ## Créditos
 Gostaria de agradecer a todos que me ajudaram de alguma forma a iniciar esse projeto e seguir em frente no PSI. Em especial, agradeço à Carol, ao Ruas e à Gabi Jandres por me apoiarem a prosseguir, tanto no início, quando eu ainda nem sabia do PSI quanto na caminhada até agora, e que também me ajudaram bastante com o código; à Mileny que foi minha parceira de squad nesta etapa final e me ajudou bastante nesse projeto; e à Júlia Pohlmann que me ajudou a solucionar problemas no código que eu não conseguia resolver.
 
 ## Autora
+<a href="">
+ <img style="border-radius: 50px;" src="https://i.ibb.co/59Fv8Kk/73113320-2410045732445910-2665005212640477184-n-2.jpg" width="100" alt="foto da autora"/>
+ <br /></a>
+ 
+ Nayara Gomes<br/>
+ <sub><b>Dev frontend - EJCM</b></sub><br/>
+ <sub><b>Dev frontend - Venha pra Nuvem</b></sub>
 
+[![Linkedin Badge](https://img.shields.io/badge/-Nayara-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nayara-gomes-15727756/)](https://www.linkedin.com/in/nayara-gomes-15727756/) 
+[![Gmail Badge](https://img.shields.io/badge/-nayara.gomes13@poli.ufrj.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:nayara.gomes13@poli.ufrj.br)](mailto:nayara.gomes13@poli.ufrj.br)
 
