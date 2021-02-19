@@ -100,16 +100,20 @@ http://localhost:8000/
 ```
 
 As rotas do sistema estão no arquivo routes/api.php, usando os verbos HTTP correspondentes. Segue exemplos:
-+ http://localhost:8000/api/register
-+ http://localhost:8000/api/listUsers
-+ http://localhost:8000/api/showUser/{id}
-+ http://localhost:8000/api/searchMusic/{keyword}
+``` bash
+http://localhost:8000/api/register
+http://localhost:8000/api/listUsers
+http://localhost:8000/api/showUser/{id}
+http://localhost:8000/api/searchMusic/{keyword}
+```
 
 Existem também rotas que são protegidas por uma middleware de autenticação, ou seja, só podem ser acessadas quando o usuário está logado ao sistema. Segue exemplos:
-+ http://localhost:8000/api/getDetails
-+ http://localhost:8000/api/addToPlaylist
-+ http://localhost:8000/api/createMusic
-+ http://localhost:8000/api/deleteMusic/{id}
+``` bash
+http://localhost:8000/api/getDetails
+http://localhost:8000/api/addToPlaylist
+http://localhost:8000/api/createMusic
+http://localhost:8000/api/deleteMusic/{id}
+```
 
 ## Bibliotecas
 + "php": "^7.3|^8.0",
