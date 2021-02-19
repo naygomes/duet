@@ -14,7 +14,7 @@ O Duet é o ínicio de uma ideia de projeto pessoal. Feito de forma bem simplifi
   </h4>
   
  <p align="center"> 
-    <b>OBS:</b> Esse projeto é um trabalho final do processo seletivo interno para o cargo de Tech Lead na EJCM.
+    <b>OBS:</b> Esse projeto é um trabalho final do processo seletivo interno(PSI) para o cargo de Tech Lead na EJCM.
  </p>
 
 
@@ -25,7 +25,6 @@ Conteúdo
  * [Instalação](#instalação)
  * [Configuração](#configuração)
  * [Uso](#uso)
- * [Desafios](#desafios)
  * [Bibliotecas](#bibliotecas)
  * [Modelagem](#modelagem)
  * [Créditos](#créditos)
@@ -44,15 +43,15 @@ Conteúdo
 - [x] Procurar letras de música
 
 ## Pré-requisitos
-<a href="https://www.apachefriends.org/pt_br/download.html">
+<a target="blank" href="https://www.apachefriends.org/pt_br/download.html">
 Instalação Xampp - versão >7.3
 </a>
 <br/>
-<a href="https://getcomposer.org/download/">
+<a target="blank" href="https://getcomposer.org/download/">
 Instalação Composer
 </a>
 <br/>
-<a href="https://insomnia.rest/download/">
+<a target="blank" href="https://insomnia.rest/download/">
 Instalação de ferramenta para fazer as requisições na API (Insomnia, Postman)	
 </a>
 
@@ -73,7 +72,7 @@ $ composer install
 $ cp .env.example .env
 ```
 + Crie um banco de dados em sua plataforma de gerenciamento (PhpMyAdmin, no caso do Xampp) e, no arquivo .env, coloque o mesmo nome no campo 'DATABASE';
-+ Vá ao site da <a href="https://auth.vagalume.com.br/settings/api/">API vagalume</a> e pegue sua credencial;
++ Vá ao site da <a target="blank" href="https://auth.vagalume.com.br/settings/api/">API vagalume</a> e pegue sua credencial;
 + No arquivo .env, adicione a seguinte linha, substituindo o {sua credencial} pela credencial obtida na API:
 ``` bash
 API_KEY = {sua credencial}
@@ -89,7 +88,6 @@ $ php artisan passport:install
 $ php artisan migrate 
 ```
 
-
 ## Uso
 + Para interagirmos com a aplicação, precisamos servir o projeto.
 ```bash
@@ -98,15 +96,20 @@ $ php artisan serve
 
 + Url de acesso:
 ```
-Backend: http://localhost:8000/
+http://localhost:8000/
 ```
-## Desafios
 
 ## Bibliotecas
++ "php": "^7.3|^8.0",
++ "guzzlehttp/guzzle": "^7.2",
++ "laravel/framework": "^8.12",
++ "laravel/passport": "^10.1",
 
-## Protótipo e Modelagem
+## Modelagem
++ Modelagem do Banco de Dados: ![Modelagem](https://i.ibb.co/M6yV2gX/modelagem.png)
 
 ## Créditos
+Gostaria de agradecer a todos que me ajudaram de alguma forma a iniciar esse projeto e seguir em frente no PSI. Em especial, agradeço à Carol, ao Ruas e à Gabi Jandres por me apoiarem a prosseguir, tanto no início, quando eu ainda nem sabia do PSI quanto na caminhada até agora, e que também me ajudaram bastante com o código; à Mileny que foi minha parceira de squad nesta etapa final e me ajudou bastante nesse projeto; e à Júlia Pohlmann que me ajudou a solucionar problemas no código que eu não conseguia resolver.
 
 ## Autora
 
