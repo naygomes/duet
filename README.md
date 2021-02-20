@@ -66,6 +66,7 @@ $ composer install
 ```
 
 ## Configuração
++Abra o Xampp em seu computador e, nas linhas <b>"Apache"</b> e <b>"MySQL"</b>, aperte <b>START</b>.
 
 + Entre na pasta 'back' e copie o arquivo .env.example e renomeie essa cópia com o nome .env. Se estiverem pelo terminal, execute o seguinte comando no terminal:
 ``` bash
@@ -99,6 +100,22 @@ $ php artisan serve
 http://localhost:8000/
 ```
 
+As rotas do sistema estão no arquivo routes/api.php, usando os verbos HTTP correspondentes. Segue exemplos:
+``` bash
+http://localhost:8000/api/register
+http://localhost:8000/api/listUsers
+http://localhost:8000/api/showUser/{id}
+http://localhost:8000/api/searchMusic/{keyword}
+```
+
+Existem também rotas que são protegidas por uma middleware de autenticação, ou seja, só podem ser acessadas quando o usuário está logado ao sistema. Segue exemplos:
+``` bash
+http://localhost:8000/api/getDetails
+http://localhost:8000/api/addToPlaylist
+http://localhost:8000/api/createMusic
+http://localhost:8000/api/deleteMusic/{id}
+```
+
 ## Bibliotecas
 + "php": "^7.3|^8.0",
 + "guzzlehttp/guzzle": "^7.2",
@@ -113,9 +130,8 @@ http://localhost:8000/
 Gostaria de agradecer a todos que me ajudaram de alguma forma a iniciar esse projeto e seguir em frente no PSI. Em especial, agradeço à Carol, ao Ruas e à Gabi Jandres por me apoiarem a prosseguir, tanto no início, quando eu ainda nem sabia do PSI quanto na caminhada até agora, e que também me ajudaram bastante com o código; à Mileny que foi minha parceira de squad nesta etapa final e me ajudou bastante nesse projeto; e à Júlia Pohlmann que me ajudou a solucionar problemas no código que eu não conseguia resolver.
 
 ## Autora
-<a href="">
  <img style="border-radius: 50px;" src="https://i.ibb.co/59Fv8Kk/73113320-2410045732445910-2665005212640477184-n-2.jpg" width="100" alt="foto da autora"/>
- <br /></a>
+ <br />
  
  Nayara Gomes<br/>
  <sub><b>Dev frontend - EJCM</b></sub><br/>
