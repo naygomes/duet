@@ -50,4 +50,22 @@ class Music extends Model
         }
         return $music;
     }
+
+    public function filterDataFromDeezer($results) {
+        $filtered = [];
+        foreach ($results as $element) {
+            $object = new \stdClass();
+            $object->title = $element->title;
+            $object->artist = $element->artist->name;
+            $object->cover = $element->album->cover;
+            $object->album = $element->album->title;
+            $object->preview = $element->preview;
+            $object->track = $element->link;
+
+            array_push($filtered, $object);
+        }
+
+        return $filtered;
+    }
+
 }

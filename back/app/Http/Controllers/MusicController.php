@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
 use DB;
+use stdClass;
 
 use App\Models\Music;
 use App\Models\User;
@@ -81,7 +82,10 @@ class MusicController extends Controller
         
         $results = json_decode($response->getBody()->getContents());
 
-        return response()->json($results);
+        $music = new Music();
+        $filtered = $music->filterDataFromDeezer($results->data);
+
+        return response()->json($filtered);
     }
 
     public function searchLyrics($artist, $music){
@@ -94,6 +98,7 @@ class MusicController extends Controller
         $response = $client->request('GET', "search.php?art={$artist}&mus={$music}&apikey={$api_key}");
         
         $results = json_decode($response->getBody()->getContents());
+        
 
         return response()->json($results);
     }
